@@ -1,6 +1,6 @@
 package javatest01;
 
-public class LinkListµ¥ÏòÁ´±ítest {
+public class LinkListå•å‘é“¾è¡¨test {
 
 	public static void main(String[] args) {
 
@@ -10,7 +10,7 @@ public class LinkListµ¥ÏòÁ´±ítest {
 		System.out.println(link.add(1));
 		Node node=link.head;
 		
-		//×Ô¼ºĞ´µÄ±éÀúÁ´±í
+		//è‡ªå·±å†™çš„éå†é“¾è¡¨
 		for(int i=0;i<link.size;i++) {
 			System.out.println(node.o);
 			node=node.next;
@@ -28,17 +28,17 @@ public class LinkListµ¥ÏòÁ´±ítest {
 class Link {
 
 	Node head=null;
-    int size=0;//¼ÇÂ¼Á´±íÔªËØ¸öÊı
+    int size=0;//è®°å½•é“¾è¡¨å…ƒç´ ä¸ªæ•°
 	public boolean add(Object o) {
 
-		if (head == null) {//Èç¹ûÍ·½ÚµãÎª¿Õ  ÔòÖ±½Ó´´½¨Ò»¸ö½Úµã¸øÍ·½Úµã
+		if (head == null) {//å¦‚æœå¤´èŠ‚ç‚¹ä¸ºç©º  åˆ™ç›´æ¥åˆ›å»ºä¸€ä¸ªèŠ‚ç‚¹ç»™å¤´èŠ‚ç‚¹
 			head= new Node(o, null);
 			size++;
 			return true;
 			
 		} else {
 			
-//			Èç¹ûÍ·½Úµã²»Îª¿Õ £¬ÔòÈÃ×îºóÒ»¸ö½ÚµãµÄnextÖ¸ÏòÏÂÒ»¸öĞÂ½Úµã
+//			å¦‚æœå¤´èŠ‚ç‚¹ä¸ä¸ºç©º ï¼Œåˆ™è®©æœ€åä¸€ä¸ªèŠ‚ç‚¹çš„nextæŒ‡å‘ä¸‹ä¸€ä¸ªæ–°èŠ‚ç‚¹
 			LastNode(head).next = new Node(o, null);
 			size++;
 			return true;
@@ -46,8 +46,8 @@ class Link {
 		
 	}
 
-	//Ê¹ÓÃµİ¹é·½·¨²éÑ¯×îºóÒ»¸ö½Úµã²¢·µ»Ø¸Ã½ÚµãµÄnextºÃÈÃnextÖ¸ÏòÏÂÒ»¸ö½Úµã
-	public Node LastNode(Node head) {
+	//ä½¿ç”¨é€’å½’æ–¹æ³•æŸ¥è¯¢æœ€åä¸€ä¸ªèŠ‚ç‚¹å¹¶è¿”å›è¯¥èŠ‚ç‚¹çš„nextå¥½è®©nextæŒ‡å‘ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
+	private Node LastNode(Node head) {
 		if (head.next == null) {
 			return head;
 		}
@@ -59,19 +59,19 @@ class Link {
 
 class Node {
 
-	Object o;//Êı¾İÏî
+	Object o;//æ•°æ®é¡¹
 
-	Node next;//Ö¸ÕëÏî
+	Node next;//æŒ‡é’ˆé¡¹
 
 	public Node() {
 	}
 
-	public Node(Object o, Node next) {//¹¹Ôì·½·¨
+	public Node(Object o, Node next) {//æ„é€ æ–¹æ³•
 		this.o = o;
-		this.next = next;//ÕâÀïÎªÊ²Ã´²»Ö±½ÓÎªNULL     £ºÊÇÎªÁËÏÂ´ÎµÄËæ»úÔö¼ÓÔªËØ»òÕßÉ¾³ıÔªËØ
+		this.next = next;//è¿™é‡Œä¸ºä»€ä¹ˆä¸ç›´æ¥ä¸ºNULL     ï¼šæ˜¯ä¸ºäº†ä¸‹æ¬¡çš„éšæœºå¢åŠ å…ƒç´ æˆ–è€…åˆ é™¤å…ƒç´ 
 	}
 }
 
 
-//×¢:Èç¹ûÊÇ´´½¨µÄµÚÒ»¸ö½ÚµãÖ±½ÓÈÃheadÖ¸ÏòËü£¬Èç¹û²»ÊÇµÚÒ»¸ö½ÚµãÈÃÉÏÒ»¸ö½ÚµãµÄnextÖ¸ÏòËü
+//æ³¨:å¦‚æœæ˜¯åˆ›å»ºçš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ç›´æ¥è®©headæŒ‡å‘å®ƒï¼Œå¦‚æœä¸æ˜¯ç¬¬ä¸€ä¸ªèŠ‚ç‚¹è®©ä¸Šä¸€ä¸ªèŠ‚ç‚¹çš„nextæŒ‡å‘å®ƒ
 
