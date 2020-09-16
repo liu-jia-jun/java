@@ -1,15 +1,15 @@
 package javatest01;
 
-public class 泛型test {
+public class 路潞脨脥test {//娉涘瀷鏈哄埗
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Animal<String> a=new Animal();
-		a.move("动物");
+		a.move("露炉脦茂");
 		
 		
 		Bird bird=new Bird();
-		bird.move("鸟");
+		bird.move("脛帽");
 	}
 
 }
@@ -17,13 +17,13 @@ public class 泛型test {
 
 class Animal<e>{
 	void move(e s) {
-		System.out.println(s+"在移动");
+		System.out.println(s+"脭脷脪脝露炉");
 	}
 }
 
 class Bird extends Animal{
 	void move(String s) {
-		System.out.println(s+"在飞");
+		System.out.println(s+"脭脷路脡");
 	}
 }
 	
