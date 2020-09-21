@@ -1,8 +1,19 @@
-package Ëã·¨ÓëÊı¾İ½á¹¹;
+package ç®—æ³•ä¸æ•°æ®ç»“æ„;
 
 import java.util.*;
 
-public class »·ĞÎÊı×é¶ÓÁĞ {
+/*
+
+(rear+maxsize-front)%maxsize    åˆ¤æ–­é˜Ÿåˆ—ä¸­æœ‰æ•ˆæ•°æ®çš„ä¸ªæ•°
+
+front==rear  åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
+
+(rear+1)%maxsize==front  åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦å·²æ»¡
+
+é˜Ÿåˆ—ä¸­å­˜åœ¨ä¸€ä¸ªç©º  rear æŒ‡å‘çš„å°±æ˜¯ç©º
+
+*/
+public class ç¯å½¢æ•°ç»„é˜Ÿåˆ— {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -11,11 +22,11 @@ public class »·ĞÎÊı×é¶ÓÁĞ {
 		String choose;
 		int size;
 		Scanner sc=new Scanner(System.in);
-		System.out.println("ÊäÈëÒ»¸öÕûÊı  ´ú±íÄã¶ÓÁĞµÄ³¤¶È");
+		System.out.println("è¾“å…¥ä¸€ä¸ªæ•´æ•°  ä»£è¡¨ä½ é˜Ÿåˆ—çš„é•¿åº¦");
 		 size=sc.nextInt();
 		 ringArray arr=new ringArray(size);
-		 System.out.println("ÇëÊäÈëÒ»¸ö×ÖÄ¸´ú±íÄãµÄ²Ù×÷");
-			System.out.println("aÎªÔö¼ÓÔªËØ\n gÎªÈ¡³öÔªËØ\n sÎª´òÓ¡ËùÓĞÔªËØ\n iÎªÅĞ¶Ï¶ÓÁĞÊÇ·ñÎª¿Õ\n lÎª·µ»Ø¶ÓÁĞÓĞĞ§ÔªËØ¸öÊı\n eÎªÍË³ö³ÌĞò");
+		 System.out.println("è¯·è¾“å…¥ä¸€ä¸ªå­—æ¯ä»£è¡¨ä½ çš„æ“ä½œ");
+			System.out.println("aä¸ºå¢åŠ å…ƒç´ \n gä¸ºå–å‡ºå…ƒç´ \n sä¸ºæ‰“å°æ‰€æœ‰å…ƒç´ \n iä¸ºåˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º\n lä¸ºè¿”å›é˜Ÿåˆ—æœ‰æ•ˆå…ƒç´ ä¸ªæ•°\n eä¸ºé€€å‡ºç¨‹åº");
 		
 		while(tf) {
 			
@@ -23,13 +34,13 @@ public class »·ĞÎÊı×é¶ÓÁĞ {
 			switch(choose) {
 			case "a":
 				String data;
-				System.out.println("ÇëÊäÈëÄãÒªÊäÈëµÄÊı¾İ");
+				System.out.println("è¯·è¾“å…¥ä½ è¦è¾“å…¥çš„æ•°æ®");
 				data=sc.next();
 				;
 				if(arr.add(data)) {
-					System.out.println("Ìí¼Ó³É¹¦");
+					System.out.println("æ·»åŠ æˆåŠŸ");
 				}else {
-					System.out.println("Ìí¼ÓÊ§°Ü");
+					System.out.println("æ·»åŠ å¤±è´¥");
 				}
 				break;
 			case "g":System.out.println(arr.get());
@@ -40,11 +51,11 @@ public class »·ĞÎÊı×é¶ÓÁĞ {
 			break;
 			case "i":arr.isEmpty();break;
 			case "l":System.out.println(arr.length());;break;
-			default :System.out.println("ÎŞĞ§²Ù×÷");
+			default :System.out.println("æ— æ•ˆæ“ä½œ");
 			break;
 		}
 		}
-		System.out.println("³ÌĞòÍË³ö³É¹¦");
+		System.out.println("ç¨‹åºé€€å‡ºæˆåŠŸ");
 		
 
 	}
@@ -52,9 +63,9 @@ public class »·ĞÎÊı×é¶ÓÁĞ {
 }
 
 class ringArray {
-	private int maxsize = 10;
-	private int front = 0;
-	private int rear = 0;
+	private int maxsize = 10;//é˜Ÿåˆ—é•¿åº¦  é»˜è®¤ä¸º10  æ„é€ å‚æ•°ä¸­å¯ä»¥é‡æ–°èµ‹å€¼
+	private int front = 0;//é˜Ÿåˆ—é¦– æŒ‡å‘ç¬¬ä¸€ä¸ªå…ƒç´   é»˜è®¤å€¼ä¸º0
+	private int rear = 0;//é˜Ÿåˆ—å°¾ æŒ‡å‘é˜Ÿåˆ—æœ€åä¸€ä¸ªå…ƒç´ çš„åä¸€ä¸ªä½ç½®
 	private Object[] array;
 
 	public ringArray() {
@@ -66,10 +77,10 @@ class ringArray {
 		array = new Object[maxsize];
 	}
 
-	// Ìí¼ÓÔªËØ
+	// æ·»åŠ å…ƒç´ 
 	public boolean add(Object o) {
 		if ((rear + 1) % maxsize == front) {
-			System.out.println("¶ÓÁĞÒÑÂú");
+			System.out.println("é˜Ÿåˆ—å·²æ»¡");
 			return false;
 		} else {
 			array[rear] = o;
@@ -82,7 +93,7 @@ class ringArray {
 	public Object get() {
 		if (front == rear) {
 			
-			return "¿Õ¶ÓÁĞ";
+			return "ç©ºé˜Ÿåˆ—";
 		} else {
 			Object temp = array[front];
 			front = (front + 1) % maxsize;
@@ -93,10 +104,10 @@ class ringArray {
 
 	public boolean isEmpty() {
 		if(front==rear) {
-			System.out.println("¿Õ¶ÓÁĞ");
+			System.out.println("ç©ºé˜Ÿåˆ—");
 		}
 		else {
-			System.out.println("¶ÓÁĞ·Ç¿Õ");
+			System.out.println("é˜Ÿåˆ—éç©º");
 		}
 		return front == rear;
 	}
@@ -108,7 +119,7 @@ class ringArray {
 
 	public void show() {
 		if (front == rear) {
-			System.out.println("¿Õ¶ÓÁĞ");
+			System.out.println("ç©ºé˜Ÿåˆ—");
 		} else {
 			for (int i = front; i <= this.length(); i++) {
 				System.out.println(array[(i) % maxsize]);
