@@ -1,8 +1,8 @@
-package Ëã·¨ÓëÊı¾İ½á¹¹;
+package ç®—æ³•ä¸æ•°æ®ç»“æ„;
 
 import java.util.*;
 
-public class µ¥Á´±íÊµÏÖ {
+public class å•é“¾è¡¨å®ç° {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,7 +17,7 @@ public class µ¥Á´±íÊµÏÖ {
 class Link {
 	Node head;
 
-	public int getlength() {// ·µ»ØÁ´±í³¤¶È ³ıÍ·½ÚµãÍâ
+	public int getlength() {// è¿”å›é“¾è¡¨é•¿åº¦ é™¤å¤´èŠ‚ç‚¹å¤–
 		Node temp = head;
 		int size = 0;
 		while (true) {
@@ -30,7 +30,7 @@ class Link {
 			}
 		}
 
-		System.out.println("¸ÃÁ´±íµÄ³¤¶ÈÎª£º" + size);
+		System.out.println("è¯¥é“¾è¡¨çš„é•¿åº¦ä¸ºï¼š" + size);
 		return size;
 	}
 
@@ -38,7 +38,7 @@ class Link {
 		head = new Node();
 	}
 
-	public void add(String name, int number, int great) {// Ôö Ôö¼ÓÁ´±íÔªËØ
+	public void add(String name, int number, int great) {// å¢ å¢åŠ é“¾è¡¨å…ƒç´ 
 		Node temp = head;
 		while (true) {
 			if (temp.next == null) {
@@ -59,8 +59,8 @@ class Link {
 			if (temp.next == null) {
 
 				break;
-			} else if (temp.next.number > number) { // ÓÃtempµÄºóÒ»¸öÔªËØÀ´±È½ÏÈç¹û´óÓÚnumber ¾Í±íÊ¾ÕÒµ½ÁË
-				// Î»ÖÃÕÒµ½
+			} else if (temp.next.number > number) { // ç”¨tempçš„åä¸€ä¸ªå…ƒç´ æ¥æ¯”è¾ƒå¦‚æœå¤§äºnumber å°±è¡¨ç¤ºæ‰¾åˆ°äº†
+				// ä½ç½®æ‰¾åˆ°
 				break;
 			} else if (temp.next.number == number) {
 				flag = true;
@@ -70,7 +70,7 @@ class Link {
 			}
 		}
 		if (flag) {
-			System.out.println("¸ÃĞòºÅÒÑÓĞ");
+			System.out.println("è¯¥åºå·å·²æœ‰");
 		} else {
 			Node newnode = new Node(name, number, great);
 			newnode.next = temp.next;
@@ -80,10 +80,10 @@ class Link {
 
 	}
 
-	public void show() {// Êä³ö ±éÀúÁ´±í
+	public void show() {// è¾“å‡º éå†é“¾è¡¨
 		Node temp = head.next;
 		if (head.next == null) {
-			System.out.println("¸ÃÁ´±íÎª¿Õ Ã»ÓĞÔªËØ");
+			System.out.println("è¯¥é“¾è¡¨ä¸ºç©º æ²¡æœ‰å…ƒç´ ");
 			return;
 		}
 		while (true) {
@@ -97,21 +97,21 @@ class Link {
 
 	}
 
-	public void deleat(int n) {// É¾ É¾³ıÖ¸¶¨ÔªËØ
+	public void deleat(int n) {// åˆ  åˆ é™¤æŒ‡å®šå…ƒç´ 
 		Node temp;
 		temp = head;
 		while (true) {
 			if (n < 1) {
-				System.out.println("É¾³ıÓĞÎó ÊäÈëĞòºÅĞèÒªÎª´óÓÚ0 µÄÕıÕûÊı");
+				System.out.println("åˆ é™¤æœ‰è¯¯ è¾“å…¥åºå·éœ€è¦ä¸ºå¤§äº0 çš„æ­£æ•´æ•°");
 				break;
 			}
 
 			if (temp.next.number == n) {
 				temp.next = temp.next.next;
-				System.out.println("É¾³ı³É¹¦");
+				System.out.println("åˆ é™¤æˆåŠŸ");
 				break;
 			} else if (temp.next.next == null) {
-				System.out.println("É¾³ıÊ§°Ü£¬Î´ÕÒµ½¸ÃÔªËØ");
+				System.out.println("åˆ é™¤å¤±è´¥ï¼Œæœªæ‰¾åˆ°è¯¥å…ƒç´ ");
 				break;
 			} else {
 				temp = temp.next;
@@ -121,7 +121,7 @@ class Link {
 
 	public void check(int n) {
 		if (n < 1) {
-			System.out.println("²éÑ¯ÊäÈëÓĞÎó£¬ÇëÊäÈë´óÓÚ0µÄÕûÊı");
+			System.out.println("æŸ¥è¯¢è¾“å…¥æœ‰è¯¯ï¼Œè¯·è¾“å…¥å¤§äº0çš„æ•´æ•°");
 			return;
 		}
 		Node temp;
@@ -131,7 +131,7 @@ class Link {
 				System.out.println(temp);
 				break;
 			} else if (temp.next == null) {
-				System.out.println("Î´ÕÒµ½¸ÃĞòºÅµÄÔªËØ");
+				System.out.println("æœªæ‰¾åˆ°è¯¥åºå·çš„å…ƒç´ ");
 				break;
 			} else {
 				temp = temp.next;
@@ -144,7 +144,7 @@ class Link {
 		Node temp;
 		temp = head.next;
 		if (n < 1) {
-			System.out.println("¸Ä¶¯ÊäÈëÓĞÎó£¬ÇëÊäÈë´óÓÚ0µÄÕıÕûÊı");
+			System.out.println("æ”¹åŠ¨è¾“å…¥æœ‰è¯¯ï¼Œè¯·è¾“å…¥å¤§äº0çš„æ­£æ•´æ•°");
 			return;
 		}
 		while (true) {
@@ -156,7 +156,7 @@ class Link {
 				return;
 
 			} else if (temp.next == null) {
-				System.out.println("Î´ÕÒµ½¸ÃĞòºÅµÄÔªËØ");
+				System.out.println("æœªæ‰¾åˆ°è¯¥åºå·çš„å…ƒç´ ");
 				return;
 			} else {
 				temp = temp.next;
@@ -164,18 +164,18 @@ class Link {
 		}
 	}
 
-	public Node checklast(int n) {// ²éµ½µ¹ÊıµÚn¸öÔªËØ
+	public Node checklast(int n) {// æŸ¥åˆ°å€’æ•°ç¬¬nä¸ªå…ƒç´ 
 
 		Node temp = head.next;
 		if (n <= 0 || n > this.getlength()) {
-			System.out.println("²éÑ¯ÓĞÎó");
+			System.out.println("æŸ¥è¯¢æœ‰è¯¯");
 			return null;
 		}
 
 		int size = this.getlength() - n+1;
 		while (true) {
 			if (temp == null) {
-				System.out.println("Î´ÕÒµ½");
+				System.out.println("æœªæ‰¾åˆ°");
 				return null;
 			} else {
 				size--;
@@ -191,18 +191,18 @@ class Link {
 		return temp;
 	}
 	
-//Á´±íµÄ·´×ª
+//é“¾è¡¨çš„åè½¬
 	public void rever() {
 		Node temp=head.next;
 		Node temp1=new Node();
 		Node temp2;
 		if(temp==null) {
-			System.out.println("Á´±íÎª¿Õ");
+			System.out.println("é“¾è¡¨ä¸ºç©º");
 			return;
 		}
 		
 		while(temp!=null) {
-			//ÕâÀïÖ±½Ó²Ù×÷tempÖ®ºóÔÙÔËĞĞtemp=temp2£»½«temp×¼È·µÄ´ø»Øµ½Ô­À´µÄÁ´±í
+			//è¿™é‡Œç›´æ¥æ“ä½œtempä¹‹åå†è¿è¡Œtemp=temp2ï¼›å°†tempå‡†ç¡®çš„å¸¦å›åˆ°åŸæ¥çš„é“¾è¡¨
 				temp2=temp.next;
 			
 				temp.next=temp1.next;
@@ -210,9 +210,9 @@ class Link {
 				temp=temp2;
 	/*		
 	 * 
-	 * ÕâÀï½«temp¸³¸øtemp2 ÊÇµØÖ·´«µİ  Ö®ºóµÄ²Ù×÷¶¼»áÓ°ÏìÔ­À´µÄµ¥Á´±í  
-	 * Ö®ºóÁ´±í¾Í»áÖ»ÓĞÒ»¸öÓĞĞ§½ÚµãºÍÒ»¸öÍ·½Úµã
-	 * ËùÒÔËµÕâ¸ö²Ù×÷ÊÇ´íÎóµÄ
+	 * è¿™é‡Œå°†tempèµ‹ç»™temp2 æ˜¯åœ°å€ä¼ é€’  ä¹‹åçš„æ“ä½œéƒ½ä¼šå½±å“åŸæ¥çš„å•é“¾è¡¨  
+	 * ä¹‹åé“¾è¡¨å°±ä¼šåªæœ‰ä¸€ä¸ªæœ‰æ•ˆèŠ‚ç‚¹å’Œä¸€ä¸ªå¤´èŠ‚ç‚¹
+	 * æ‰€ä»¥è¯´è¿™ä¸ªæ“ä½œæ˜¯é”™è¯¯çš„
        			temp2=temp;
 				temp2.next=temp1.next;
 				temp1.next=temp2;
@@ -225,6 +225,39 @@ class Link {
 		
 		
 	}
+	
+	
+	
+	// é€†åºæ‰“å°é“¾è¡¨ä¸æ”¹å˜é“¾è¡¨ç»“æ„
+	public void endput1() {
+		//æ•°ç»„å®ç°
+		Node[] nodes = new Node[this.getlength()];
+		Node temp = head.next;
+		for (int i = 0; i < this.getlength(); i++) {
+			if (temp != null) {
+				nodes[i] = temp;
+				temp = temp.next;
+			}
+		}
+		for (int i = nodes.length - 1; i >= 0; i--) {
+			System.out.println(nodes[i]);
+		}
+
+	}
+
+	public void endput2() {
+	//å‹æ ˆå®ç°
+	Stack<Node> nodes=new Stack();
+	Node temp=head.next;
+	while(temp!=null) {
+		nodes.add(temp);
+		temp=temp.next;
+	}
+	
+	while(nodes.size()>0) {
+		System.out.println(nodes.pop());
+	}
+}
 
 }
 
@@ -244,7 +277,7 @@ class Node {
 	}
 
 	public String toString() {
-		return "Ñ§ºÅ£º" + this.number + "ĞÕÃû£º" + this.name + "³É¼¨£º" + this.great;
+		return "å­¦å·ï¼š" + this.number + "å§“åï¼š" + this.name + "æˆç»©ï¼š" + this.great;
 
 	}
 }
@@ -257,52 +290,52 @@ class Test {
 
 	/*
 	 * 
-	 * ÊäÈëÓĞÎÊÌâ public static void test() { boolean state = true; int n; int number;
+	 * è¾“å…¥æœ‰é—®é¢˜ public static void test() { boolean state = true; int n; int number;
 	 * String name = null; int great = 0; String choose;
 	 * 
 	 * 
 	 * Link link = new Link(); Scanner sc = new Scanner(System.in);
-	 * System.out.println("ÊäÈë×ÖÄ¸  ±íÊ¾Äã½ÓÏÂÀ´µÄ²Ù×÷"); System.out.println(
-	 * "aÎªË³ĞòÌí¼ÓÔªËØ\nsÎªÊä³öÕ¹Ê¾ËùÒÔÔªËØ\ndÎªÉ¾³ıÖ¸¶¨ÔªËØ\ncÎª²éÑ¯Ö¸¶¨ÔªËØ\nchÎª¸Ä±äÔªËØÄÚÈİ\nabÎª°´ĞòÌí¼Ó\ngÎª·µ»ØÔªËØ¸öÊıeÎªÍË³ö³ÌĞò"
-	 * ); while (state) { System.out.println("ÇëÊäÈë×ÖÄ¸²Ù×÷£¬»Ø³µ±íÊ¾ÊäÈëÍê³É");
+	 * System.out.println("è¾“å…¥å­—æ¯  è¡¨ç¤ºä½ æ¥ä¸‹æ¥çš„æ“ä½œ"); System.out.println(
+	 * "aä¸ºé¡ºåºæ·»åŠ å…ƒç´ \nsä¸ºè¾“å‡ºå±•ç¤ºæ‰€ä»¥å…ƒç´ \ndä¸ºåˆ é™¤æŒ‡å®šå…ƒç´ \ncä¸ºæŸ¥è¯¢æŒ‡å®šå…ƒç´ \nchä¸ºæ”¹å˜å…ƒç´ å†…å®¹\nabä¸ºæŒ‰åºæ·»åŠ \ngä¸ºè¿”å›å…ƒç´ ä¸ªæ•°eä¸ºé€€å‡ºç¨‹åº"
+	 * ); while (state) { System.out.println("è¯·è¾“å…¥å­—æ¯æ“ä½œï¼Œå›è½¦è¡¨ç¤ºè¾“å…¥å®Œæˆ");
 	 * 
 	 * choose = sc.nextLine();
 	 * 
-	 * switch (choose) { case "a": System.out.println("ÇëÊäÈëĞòºÅ£¬´óÓÚ0µÄÕıÕûÊı"); number =
+	 * switch (choose) { case "a": System.out.println("è¯·è¾“å…¥åºå·ï¼Œå¤§äº0çš„æ­£æ•´æ•°"); number =
 	 * sc.nextInt();
 	 * 
 	 * 
-	 * System.out.println("ÇëÊäÈë³É¼¨"); if(sc.hasNextInt()) great = sc.nextInt();
+	 * System.out.println("è¯·è¾“å…¥æˆç»©"); if(sc.hasNextInt()) great = sc.nextInt();
 	 * 
-	 * System.out.println("ÇëÊäÈëĞÕÃû"); if(sc.hasNext()) name = sc.nextLine();
+	 * System.out.println("è¯·è¾“å…¥å§“å"); if(sc.hasNext()) name = sc.nextLine();
 	 * 
-	 * link.add(name, number, great); System.out.println("Ìí¼Ó³É¹¦"); break; case "s":
-	 * link.show(); break; case "d": System.out.println("ÇëÊäÈëÄãÒªÉ¾³ıÊı¾İµÄĞòºÅ"); n =
+	 * link.add(name, number, great); System.out.println("æ·»åŠ æˆåŠŸ"); break; case "s":
+	 * link.show(); break; case "d": System.out.println("è¯·è¾“å…¥ä½ è¦åˆ é™¤æ•°æ®çš„åºå·"); n =
 	 * sc.nextInt();
 	 * 
-	 * link.deleat(n); break; case "c": System.out.println("ÇëÊäÈëÄãÒª²éÑ¯Êı¾İµÄĞòºÅ"); n =
+	 * link.deleat(n); break; case "c": System.out.println("è¯·è¾“å…¥ä½ è¦æŸ¥è¯¢æ•°æ®çš„åºå·"); n =
 	 * sc.nextInt();
 	 * 
-	 * link.check(n); break; case "ch": System.out.println("ÇëÊäÈëÄãÒªĞŞ¸ÄµÄÊı¾İµÄĞòºÅ"); n =
+	 * link.check(n); break; case "ch": System.out.println("è¯·è¾“å…¥ä½ è¦ä¿®æ”¹çš„æ•°æ®çš„åºå·"); n =
 	 * sc.nextInt();
 	 * 
-	 * System.out.println("ÇëÊäÈëĞòºÅ£¬´óÓÚ0µÄÕıÕûÊı"); number = sc.nextInt();
+	 * System.out.println("è¯·è¾“å…¥åºå·ï¼Œå¤§äº0çš„æ­£æ•´æ•°"); number = sc.nextInt();
 	 * 
-	 * System.out.println("ÇëÊäÈëĞÕÃû"); name = sc.nextLine();
+	 * System.out.println("è¯·è¾“å…¥å§“å"); name = sc.nextLine();
 	 * 
-	 * System.out.println("ÇëÊäÈë³É¼¨"); great = sc.nextInt();
+	 * System.out.println("è¯·è¾“å…¥æˆç»©"); great = sc.nextInt();
 	 * 
 	 * link.change(n, number, name, great); break; case "ab":
-	 * System.out.println("ÇëÊäÈëĞòºÅ£¬´óÓÚ0µÄÕıÕûÊı"); number = sc.nextInt();
+	 * System.out.println("è¯·è¾“å…¥åºå·ï¼Œå¤§äº0çš„æ­£æ•´æ•°"); number = sc.nextInt();
 	 * 
-	 * System.out.println("ÇëÊäÈëĞÕÃû"); name = sc.nextLine();
+	 * System.out.println("è¯·è¾“å…¥å§“å"); name = sc.nextLine();
 	 * 
-	 * System.out.println("ÇëÊäÈë³É¼¨"); great = sc.nextInt();
+	 * System.out.println("è¯·è¾“å…¥æˆç»©"); great = sc.nextInt();
 	 * 
-	 * link.addBy(name, number, great); System.out.println("Ìí¼Ó³É¹¦"); break; case "g":
+	 * link.addBy(name, number, great); System.out.println("æ·»åŠ æˆåŠŸ"); break; case "g":
 	 * System.out.println(link.getlength()); break; case "e": state = false; break;
-	 * default: System.out.println("ÎŞĞ§²Ù×÷"); break; }
+	 * default: System.out.println("æ— æ•ˆæ“ä½œ"); break; }
 	 * 
-	 * } System.out.println("³ÌĞòÍË³ö³É¹¦"); }
+	 * } System.out.println("ç¨‹åºé€€å‡ºæˆåŠŸ"); }
 	 */
 }
