@@ -1,6 +1,8 @@
 package javatest01;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FileTest {
 
@@ -47,6 +49,13 @@ public class FileTest {
 		for (File file : files) {
 			System.out.println(file.getName());
 		}
+		
+		 
+		// f3.lastModified(); 返回最后一次文件更改的时间
+		Date time=new Date(f3.lastModified());
+		
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-mm-dd hh:mm:ss sss");
+		System.out.println("最后一次文件更改的时间:"+sdf.format(time));
 	}
 
 }
