@@ -1,0 +1,206 @@
+package javatest01;
+//扫雷
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
+import javax.swing.*;
+
+public class Saolei extends JFrame {
+	final int ROW = 20;
+	final int COL = 20;
+	final int LEI = 30;
+	JButton[][] buttons = new JButton[ROW][COL];
+	int[][] counts = new int[ROW][COL];
+	final int LCODE = 11;
+	Container container = new Container();
+
+	public Saolei() {
+		init();
+
+	}
+
+	private void init() {
+		JButton restBtn = new JButton("重来");
+		restBtn.setOpaque(true);
+		restBtn.setBackground(Color.pink);
+		restBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for (int i = 0; i < ROW; i++) {
+					for (int j = 0; j < COL; j++) {
+						buttons[i][j].setText("");
+						buttons[i][j].setEnabled(true);
+						buttons[i][j].setBackground(Color.yellow);
+						counts[i][j] = 0;
+					}
+				}
+				mailei();
+				jslsl();
+			}
+		});
+		setLayout(new BorderLayout());
+		add(restBtn, BorderLayout.NORTH);
+		add(container, BorderLayout.CENTER);
+		container.setLayout(new GridLayout(ROW, COL));
+		for (int i = 0; i < ROW; i++) {
+			for (int j = 0; j < COL; j++) {
+				JButton button = new JButton();
+				button.setMargin(new Insets(0, 0, 0, 0));
+				button.setBackground(Color.yellow);
+				button.setOpaque(true);
+				buttons[i][j] = button;
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JButton button = (JButton) e.getSource();
+						if (button.equals(restBtn)) {
+
+						} else {
+							int count = 0;
+							for (int i = 0; i < ROW; i++) {
+								for (int j = 0; j < COL; j++) {
+									if (button.equals(buttons[i][j])) {
+										count = counts[i][j];
+										if (count == LEI) {
+											clcl();
+										} else {
+											openCell(i, j);
+											checkWin();
+
+										}
+										return;
+
+									}
+								}
+
+							}
+						}
+					}
+
+					private void checkWin() {
+						for (int i = 0; i < ROW; i++) {
+							for (int j = 0; j < COL; j++) {
+								if (buttons[i][j].isEnabled() == true && counts[i][j] != LEI) {
+									return;
+								}
+							}
+						}
+						JOptionPane.showMessageDialog(container, "恭喜你赢了");
+					}
+
+					private void openCell(int i, int j) {
+						if (buttons[i][j].isEnabled() == false) {
+							return;
+						}
+						buttons[i][j].setText(counts[i][j] + "");
+						buttons[i][j].setEnabled(false);
+						buttons[i][j].setBackground(Color.CYAN);
+
+						if (counts[i][j] == 0) {
+							if (i > 0 && j > 0 && counts[i - 1][j - 1] != LEI) {
+								openCell(i - 1, j - 1);
+							}
+							if (i > 0 && j > 0 && counts[i - 1][j] != LEI) {
+								openCell(i-1,j);
+							}
+							if (i > 0 && j <19 && counts[i - 1][j+1] != LEI) {
+								openCell(i-1,j+1);
+							}
+							if (i > 0 && j > 0 && counts[i ][j-1] != LEI) {
+								openCell(i,j-1);
+							}
+							if (i <19 && j > 0 && counts[i + 1][j-1] != LEI) {
+								openCell(i+1,j-1);
+							}
+							if (i <19 && j > 0 && counts[i + 1][j] != LEI) {
+								openCell(i+1,j);
+							}
+							if (i <19 && j <19 && counts[i + 1][j+1] != LEI) {
+								openCell(i+1,j+1);
+							}
+						}else {
+							buttons[i][j].setText(counts[i][j]+"");
+						}
+					}
+				});
+				container.add(button);
+				
+			}
+		}
+		mailei();
+		jslsl();
+		setVisible(true);
+		setTitle("扫雷游戏");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(600,700);
+	}
+private void jslsl() {
+	for(int i=0;i<ROW;i++) {
+		for(int j=0;j<COL;j++) {
+			int count=0;
+			if(counts[i][j]==LEI) {
+				continue;
+			}
+			if (i > 0 && j > 0 && counts[i - 1][j-1] == LEI) {
+				count++;
+			}
+			if (i > 0 && j > 0 && counts[i - 1][j] == LEI) {
+				count++;
+			}
+			if (i > 0 && j <19 && counts[i - 1][j+1] == LEI) {
+				count++;
+			}
+			if (i > 0 && j > 0 && counts[i ][j-1] == LEI) {
+				count++;
+			}
+			if (i > 0 && j <19 && counts[i ][j+1] == LEI) {
+				count++;
+			}
+			if (i <19 && j > 0 && counts[i +1][j-1] == LEI) {
+				count++;
+			}
+			if (i <19 && j > 0 && counts[i +1][j] == LEI) {
+				count++;
+			}
+			if (i <19 && j<19 && counts[i + 1][j+1] == LEI) {
+				count++;
+			}
+			counts[i][j]=count;
+			
+		}
+	}
+}
+private void clcl() {
+	for(int i=0;i<ROW;i++) {
+		for(int j=0;j<COL;j++) {
+			int c=counts[i][j];
+			if(c==LEI) {
+				buttons[i][j].setText("X");
+				buttons[i][j].setBackground(Color.red);
+				buttons[i][j].setEnabled(false);
+			}else {
+				buttons[i][j].setText(c+"");
+				buttons[i][j].setEnabled(false);
+			}
+		}
+	}
+}
+private void mailei() {
+	Random random =new Random();
+	int randRow,randCol;
+	for(int i=0;i<LEI;i++) {
+		randRow=random.nextInt(ROW);
+		randCol=random.nextInt(COL);
+		if(counts[randRow][randCol]==LEI) {
+			i--;
+		}else {
+			counts[randRow][randCol]=LEI;
+			
+		}
+	}
+}
+public static void main(String[] args) {
+	new Saolei();
+}
+
+}
