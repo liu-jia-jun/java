@@ -21,10 +21,20 @@ public class UdpServerDemo01 {
 //        接收数据包
         byte[] buffer = new byte[1024];
         DatagramPacket packet = new DatagramPacket(buffer,0,buffer.length);
-        //阻塞接收
-        socket.receive(packet);
-        System.out.println(packet.getAddress().getHostName());
-        System.out.println(new String(packet.getData(),0,packet.getLength()));
+
+        while(true){
+            //阻塞接收
+            socket.receive(packet);
+
+            String message=new String(packet.getData(),0,packet.getLength());
+            System.out.println(message);
+
+            if(message.equals("bye")){
+                break;
+            }
+
+        }
+
 
 //关闭连接
         socket.close();

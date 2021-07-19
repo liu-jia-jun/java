@@ -26,18 +26,28 @@ public class TcpServiceDemo01 {
             serverSocket = new ServerSocket(8081);
 //            获取客户端的连接
             socket = serverSocket.accept();
-//            读取客户端中发送过来的消息
-            inputStream = socket.getInputStream();
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
+            byte[] buffer;
             int len;
+            while(true){
+                //            读取客户端中发送过来的消息
+                inputStream = socket.getInputStream();
+                byteArrayOutputStream = new ByteArrayOutputStream();
+                  buffer = new byte[1024];
 
 
-            while ((len = inputStream.read(buffer)) != -1) {
-                byteArrayOutputStream.write(buffer, 0, len);
+
+                while ((len = inputStream.read(buffer)) != -1) {
+                    byteArrayOutputStream.write(buffer, 0, len);
+                }
+                String message = byteArrayOutputStream.toString();
+                System.out.println(message);
+                if(message.trim().equals("bye")){
+                    break;
+                }
             }
 
-            System.out.println(byteArrayOutputStream.toString());
+
+
 
 
         } catch (IOException e) {

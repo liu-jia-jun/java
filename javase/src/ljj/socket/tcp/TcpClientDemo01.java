@@ -31,10 +31,15 @@ public class TcpClientDemo01 {
             outputStream = socket.getOutputStream();
 
             String message = null;
-
-            message = scanner.next();
+            while (true) {
+                message = scanner.nextLine();
 //发送消息的IO流，将message转换成byte数组
-            outputStream.write(message.getBytes());
+                outputStream.write(message.getBytes());
+
+                if (message.trim().equals("bye")) {
+                    break;
+                }
+            }
 
 
         } catch (IOException e) {
